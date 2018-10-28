@@ -1,14 +1,14 @@
-<ion-toolbar id="top-toolbar">
+<div id="top-toolbar">
   <ion-buttons left>
-    <button color="dark" ion-button icon-only (click)="clearCanvas()">
+    <button color="light" ion-button icon-only (click)="clearCanvas()">
       <ion-icon name="trash"></ion-icon>
     </button>
   </ion-buttons>
   <ion-buttons right>
-    <button color="dark" ion-button icon-only (click)="undoLastStroke()">
-      <ion-icon name="trash"></ion-icon>
+    <button color="light" ion-button icon-only (click)="undoLastStroke()">
+      <ion-icon name="undo"></ion-icon>
     </button>
   </ion-buttons>
-</ion-toolbar>
+</div>
 
 <canvas #myCanvas (touchstart)="handleStart($event)" (touchmove)="handleMove($event)" (touchend)="pushImage()"></canvas>

@@ -15,7 +15,7 @@ export class CanvasDrawComponent {
   imageHistory = [];
 
   currentColour: string = '#000';
-  brushSize: number = 2;
+  brushSize: number = 1;
 
   constructor(public platform: Platform, public renderer: Renderer) {
     console.log('Hello CanvasDraw Component');
@@ -28,6 +28,7 @@ export class CanvasDrawComponent {
     this.renderer.setElementAttribute(this.canvasElement, 'width', this.platform.width() + '');
     this.renderer.setElementAttribute(this.canvasElement, 'height', this.platform.height() + '');
 
+    this.pushImage();
   }
 
   handleStart(ev) {
@@ -59,6 +60,7 @@ export class CanvasDrawComponent {
   clearCanvas() {
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+    this.pushImage();
   }
 
   undoLastStroke() {
@@ -71,8 +73,6 @@ export class CanvasDrawComponent {
     this.imageHistory.pop();
     if (this.imageHistory.length > 0) {
       img.src = this.imageHistory.slice(-1)[0];
-    } else {
-      this.clearCanvas();
     }
   }
 
