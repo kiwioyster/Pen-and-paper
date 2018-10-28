@@ -9,8 +9,7 @@ canvas-draw {
     display: flex;
     position: absolute;
     top: 0;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 10px;
     pointer-events: none;
     width: 100%;
     justify-content: space-between;
@@ -19,8 +18,8 @@ canvas-draw {
   button[color=light] {
     background-color: transparent;
     color: #a8afce;
-    height: 36px;
-    width: 36px;
+    height: 48px;
+    width: 48px;
     box-shadow: none;
   }
 }
