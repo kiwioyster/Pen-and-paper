@@ -18,7 +18,6 @@ export class CanvasDrawComponent {
   brushSize: number = 1;
 
   constructor(public platform: Platform, public renderer: Renderer) {
-    console.log('Hello CanvasDraw Component');
   }
 
   ngAfterViewInit() {
@@ -32,13 +31,14 @@ export class CanvasDrawComponent {
   }
 
   handleStart(ev) {
-
+    let ctx = this.canvasElement.getContext('2d');
     this.lastX = ev.touches[0].pageX;
     this.lastY = ev.touches[0].pageY;
+
+    ctx.fillRect(this.lastX, this.lastY, 2, 2);
   }
 
   handleMove(ev) {
-
     let ctx = this.canvasElement.getContext('2d');
     let currentX = ev.touches[0].pageX;
     let currentY = ev.touches[0].pageY;
